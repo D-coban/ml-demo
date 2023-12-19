@@ -1,5 +1,6 @@
 import sys
-import logging
+# import logging
+from src.logger import logging
 
 #if you want to understand the details about custom exceptions, like whats exec_info etc, read the documentation
 def error_message_details(error, error_details:sys):
