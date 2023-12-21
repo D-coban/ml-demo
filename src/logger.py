@@ -16,6 +16,6 @@ logging.basicConfig(
 )
 
 
-if __name__ == '__main__':
-    logging.info("logging has started!")
-#timestamp, line number, name, level_name, message
+# if __name__ == '__main__':
+#     logging.info("logging has started!")
+# #timestamp, line number, name, level_name, message
