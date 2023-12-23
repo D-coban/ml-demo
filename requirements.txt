@@ -5,4 +5,5 @@ matplotlib
 scikit-learn
 catboost
 xgboost
+dill
 #-e . #commented out for now since we don't want to build it from scratch everytime when we use pip install, we will uncomment it at the end, when we finalize with pre-req packags\es 
