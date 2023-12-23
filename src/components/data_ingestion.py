@@ -6,8 +6,12 @@ from dataclasses import dataclass
 
 from src.exception import CustomException # without src prepend it didnt work, maybe in the __init__ of src you need to carry out these imports, so it will automatically caught there
 from src.logger import logging
+
 from src.components.data_transformation import DataTransformation # we add this to try if data_transformation module works, idk why he decided to to it here tho, anyways..
 from src.components.data_transformation import DataTransformationConfig
+
+from src.components.model_trainer import ModelTrainerConfig, ModelTrainer # this script become sorta the testing ground for the other components, instead of importing this
+#in proceeding modules and write the if main there, we just do it here
 
 @dataclass
 class DataIngestionConfig:
@@ -49,4 +53,6 @@ if __name__ == '__main__':
     obj = DataIngestion()
     train_data, test_data = obj.initiate_data_ingestion()
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data, test_data)
+    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data, test_data)
+    model_trainer = ModelTrainer()
+    print(model_trainer.initiate_model_training(train_arr, test_arr))

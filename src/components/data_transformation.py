@@ -46,7 +46,7 @@ class DataTransformation:
             
             logging.info('Numerical columns standard scaling completed')
             
-            # ADDED with_mean=False to standardscaler
+            # ADDED with_mean=False to standardscaler, o.w. the values become negative from the beginning which stdscale doesnt expect them to be neg
             cat_pipeline = Pipeline(
                 steps=[
                     ('imputer', SimpleImputer(strategy='most_frequent')),
@@ -66,6 +66,7 @@ class DataTransformation:
             )
             
             return preprocessor
+        
         except Exception as e:
             raise CustomException(e, sys)
         
